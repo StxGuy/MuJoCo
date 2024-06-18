@@ -1,0 +1,32 @@
+<mujoco model="pendulum">
+
+<worldbody>
+    <!-- LIGHT -->
+    <light diffuse=".5 .5 .5" pos="0 0 4" dir="0 0 -1" />
+    
+    <!-- PLANE -->
+    <geom type="plane" size="2 2 0.1" rgba="0 0 1 1" />
+    
+    <!-- CYLINDERS -->
+    <body pos="0 0 3.5" euler="0 2 0">
+        <joint name="pin" type="hinge" axis="0 1 0" pos="0 0 -0.5" frictionloss="0.3"/>
+        <geom type="cylinder" size="0.1 0.5" rgba="1 0.5 0 1" mass="1"/>
+        <body pos="0 0 1" euler="0 0 0">
+            <joint name="pin2" type="hinge" axis="0 1 0" pos="0 0 -0.5" frictionloss="0.3" />
+            <geom type="cylinder" size="0.1 0.5" rgba="0 .9 0 1" mass="1" />
+        </body>
+    </body>
+
+
+</worldbody>
+<!--
+<actuator>
+    <motor joint="pin" name="torque" gear="1" ctrllimited="true" ctrlrange="-100 100" />
+    <position name="pos_servo" joint="pin" kp="10" />
+    <velocity name="vel_servo" joint="pin" kv="1" />
+    
+</actuator>    
+-->
+
+
+</mujoco>
