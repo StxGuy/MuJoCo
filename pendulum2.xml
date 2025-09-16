@@ -1,0 +1,16 @@
+<mujoco model="Pendulum">
+    <compiler angle="radian" inertiafromgeom="true"/>
+    <worldbody>
+        <light pos="0 0 1"/>
+        <geom type="plane" size="1 1 0.1" rgba="0.9 0.9 0.9 1"/>
+        
+        <body name="anchor" pos="0 0 1">
+        <geom type="cylinder" size="0.05 0.1" rgba="0.5 0.5 0.5 1"/>
+        
+        <body name="bob" pos="0 0 -1">
+        <joint name="hinge" type="hinge" axis="1 0 0" pos="0 0 1"/>
+        <geom type="sphere" size="0.1" rgba="0 0 1 1"/>
+    </body>
+</body>
+</worldbody>
+</mujoco>

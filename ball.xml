@@ -1,0 +1,14 @@
+<mujoco>
+    <worldbody>
+        <light diffuse=".5 .5 .5" pos="0 0 3" dir="0 0 -1"/>
+        <geom name="floor" type="plane" size="10 10 0.1" rgba="0.8 0.9 0.8 1"/>
+        <body name="ball" pos="0 0 2">
+        <geom type="sphere" size="0.1" rgba="1 0 0 1"/>
+        <joint name="free" type="free"/>
+    </body>
+</worldbody>
+<actuator>
+    <motor name="x_force" joint="free" ctrlrange="-10 10" gear="1 0 0"/>
+    <motor name="y_force" joint="free" ctrlrange="-10 10" gear="0 1 0"/>
+</actuator>
+</mujoco>

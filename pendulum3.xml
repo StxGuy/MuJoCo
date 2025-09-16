@@ -1,0 +1,31 @@
+<mujoco model="Pendulum with Arm">
+    <compiler angle="radian" inertiafromgeom="true"/>
+    
+    <option gravity="0 0 -9.81" timestep="0.01"/>
+    
+    <worldbody>
+        <light pos="0 0 3"/>
+        <geom type="plane" size="2 2 0.1" rgba="0.9 0.9 0.9 1"/>
+        
+        <!-- Fixed anchor point -->
+        <body name="anchor" pos="0 0 2">
+        <geom type="cylinder" size="0.05 0.1" rgba="0.5 0.5 0.5 1"/>
+        
+        <!-- Pendulum bob -->
+        <body name="bob" pos="0 0 -1">
+        <!-- Joint at the connection point -->
+        <joint name="hinge" type="hinge" axis="1 0 0" pos="0 0 0" range="-3.14 3.14" damping="0.1"/>
+        
+        <!-- Pendulum rod -->
+        <geom type="cylinder" size="0.025 0.5" pos="0 0 -0.5" rgba="0.2 0.2 0.2 1" mass="0.1"/>
+        
+        <!-- Bob mass at the end -->
+        <geom type="sphere" size="0.1" pos="0 0 -1" rgba="0 0 1 1" mass="1"/>
+    </body>
+</body>
+</worldbody>
+
+<actuator>
+    <motor joint="hinge" gear="10" ctrllimited="true" ctrlrange="-5 5"/>
+</actuator>
+</mujoco>
